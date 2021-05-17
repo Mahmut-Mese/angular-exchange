@@ -1,0 +1,11 @@
+<div class="container">
+    <p>based on {{ base }} at {{ currentDate }}</p>
+    <mat-grid-list role="list" [cols]="breakpoint" rowHeight="3:1" (window:resize)="onResize($event)">
+        <ng-container *ngFor="let item of rates | keyvalue">
+            <mat-grid-tile role="listitem">
+                <label> {{ item.key }}: </label> <br />
+                <span>{{ item.value | currency: "GBP" }}</span>
+            </mat-grid-tile>
+        </ng-container>
+    </mat-grid-list>
+</div>
